@@ -19,7 +19,7 @@ for i = 1:length(dadosTeste)
 
     % Pega o valor dos rótulos do indice 1 até k
     %rotuloPrevisto(i) = rotuloTrain(ind(1:k));
-    rotuloPrevisto = [rotuloPrevisto ; rotuloTrain(ind(1:k))];
+    rotuloPrevisto = [rotuloPrevisto ; mode(rotuloTrain(ind(1:k)))];
 end
 
 end
