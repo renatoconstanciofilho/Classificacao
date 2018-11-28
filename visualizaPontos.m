@@ -1,3 +1,5 @@
+%% RENATO CONSTANCIO FILHO
+%% Função para plotagem dos dados
 function visualizaPontos(dados, rotulos, d1, d2)
 figure; 
 clf; 

@@ -1,0 +1,44 @@
+%% RENATO CONSTANCIO FILHO
+%% Limpar o workspace
+clc;
+clear all;
+%% Carrega a base
+load('grupoDados1.mat');
+%% Parte 1
+disp("------ Parte 1 ------");
+% Executa a classificação, enviando o grupo de treinamento, rotulos de
+% treinamento, grupo de teste e o valor de k
+k = 1;
+[rotuloPrevisto] = calssificaKNN(grupoTrain, trainRots, grupoTest, k);
+[precisao] = calculaPrecisao(rotuloPrevisto, testRots);
+disp(sprintf('K utilizado: %d', k));
+disp(sprintf('Precisão: %d%%', precisao));
+
+%% Parte 2
+disp("------ Parte 2 ------");
+k = 10;
+[rotuloPrevisto] = calssificaKNN(grupoTrain, trainRots, grupoTest, k);
+[precisao] = calculaPrecisao(rotuloPrevisto, testRots);
+disp(sprintf('K utilizado: %d', k));
+disp(sprintf('Precisão: %d%%', precisao));
+
+%% Exibir dados 
+visualizaPontos(grupoTrain,trainRots,1,2);
+
+%% Calcula melhor K Anormal
+disp("------ Melhor K Anormal ------");
+[melhorK,precisao] = calculaMelhorK(grupoTrain, trainRots, grupoTest, testRots);
+disp(sprintf('Melhor K: %d', melhorK));
+disp(sprintf('Precisão: %d%%', precisao));
+
+%% Calcula melhor K Normal
+disp("------ Melhor K Normal ------");
+[melhorK,precisao] = calculaMelhorK(normal(grupoTrain), trainRots, normal(grupoTest), testRots);
+disp(sprintf('Melhor K: %d', melhorK));
+disp(sprintf('Precisão: %d%%', precisao));
+
+%% RESPOSTAS
+% Q1.1. Qual é a precisão máxima que você consegue da classificação?
+% R: 98% com k=3 e dados não normalizados
+% Q1.2. É necessário ter todas as características (atributos) para obter a precisão máxima para esta classificação?
+% R: ???
