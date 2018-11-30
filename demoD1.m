@@ -37,8 +37,24 @@ disp("------ Melhor K Normal ------");
 disp(sprintf('Melhor K: %d', melhorK));
 disp(sprintf('Precisão: %d%%', precisao));
 
+%% Parte 4
+% Retirar caracteristicas do dataset pra testar e responder a questão Q1.2
+disp("------ Melhor K Anormal Dados Parciais ------");
+disp("Enviando comprimento e largura da sepala");
+[melhorK,precisao] = calculaMelhorK(grupoTrain(:,1:2), trainRots, grupoTest(:,1:2), testRots);
+disp(sprintf('Melhor K: %d', melhorK));
+disp(sprintf('Precisão: %d%%', precisao));
+disp("------ Melhor K Anormal Dados Parciais ------");
+disp("Enviando comprimento e largura da petala");
+[melhorK,precisao] = calculaMelhorK(grupoTrain(:,3:4), trainRots, grupoTest(:,3:4), testRots);
+disp(sprintf('Melhor K: %d', melhorK));
+disp(sprintf('Precisão: %d%%', precisao));
+
+
 %% RESPOSTAS
 % Q1.1. Qual é a precisão máxima que você consegue da classificação?
 % R: 98% com k=3 e dados não normalizados
 % Q1.2. É necessário ter todas as características (atributos) para obter a precisão máxima para esta classificação?
-% R: ???
+% R: Não é necessário, executando com o a largura e comprimento da petala é
+% possível alcançar 98% de precisão, e 78% com comprimento e largura de
+% sepala
